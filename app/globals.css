@@ -1,0 +1,57 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-inter);
+  --font-display: var(--font-space);
+  --font-mono: var(--font-mono);
+
+  --color-industrial-blue: #0047AB;
+  --color-industrial-black: #000000;
+  --color-industrial-white: #FFFFFF;
+  --color-industrial-accent: #002D62; /* A darker blue for accents */
+  --color-industrial-red: #D22B2B; /* Industrial Red for status/alerts */
+}
+
+@layer base {
+  body {
+    @apply font-sans;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display font-bold tracking-tighter uppercase;
+  }
+}
+
+@layer utilities {
+  .slam-in {
+    animation: slamIn 0.6s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+  }
+
+  .grid-bg {
+    background-image: linear-gradient(#e5e7eb 1px, transparent 1px),
+      linear-gradient(90deg, #e5e7eb 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+}
+
+@keyframes slamIn {
+  0% {
+    transform: scale(1.5) translateY(-50px);
+    opacity: 0;
+    filter: blur(10px);
+  }
+  100% {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+/* Hide scrollbar but keep functionality */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
